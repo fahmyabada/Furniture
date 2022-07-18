@@ -206,7 +206,7 @@
             android:layout_marginStart="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_20sdp"
             android:layout_marginEnd="@dimen/_12sdp"
-            android:background="@drawable/radius_grey2_10"
+            android:background="@drawable/radius_solid_grey2_10"
             android:paddingTop="@dimen/_10sdp"
             android:paddingBottom="@dimen/_10sdp"
             android:text="انشاء حساب"

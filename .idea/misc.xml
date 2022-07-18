@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/placeholder.xml" value="0.1525" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_grey4_13.xml" value="0.1875" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_grey4_5.xml" value="0.128" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_grey5_13.xml" value="0.128" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_grey_10.xml" value="0.1615" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_grey_5.xml" value="0.1615" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_red_10.xml" value="0.1615" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_solid_grey2_5.xml" value="0.126" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_solid_grey_10.xml" value="0.126" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_solid_grey_20.xml" value="0.128" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_solid_grey_5.xml" value="0.126" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/streakline.xml" value="0.126" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/activity_main.xml" value="0.23243243243243245" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/fragment_home.xml" value="0.33" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/fragment_login.xml" value="0.23243243243243245" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

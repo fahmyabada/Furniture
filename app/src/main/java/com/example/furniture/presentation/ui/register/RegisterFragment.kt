@@ -7,12 +7,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.furniture.R
+import com.example.furniture.presentation.ui.login.LoginViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = RegisterFragment()
-    }
+    @Inject
+    lateinit var viewModelFactory: LoginViewModelFactory
 
     private lateinit var viewModel: RegisterViewModel
 
