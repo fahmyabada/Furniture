@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "137810020677",
+    "project_id": "restaurant-c9174",
+    "storage_bucket": "restaurant-c9174.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137810020677:android:3ef4464a90a418d1a6562c",
+        "android_client_info": {
+          "package_name": "com.MohamedFahmy.GPless"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137810020677-mm1q2l1n5o5qrn6h58nhmfveqo4r0qup.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.MohamedFahmy.GPless",
+            "certificate_hash": "7377796d727639defa80617f1c40045c2ff8d2d9"
+          }
+        },
+        {
+          "client_id": "137810020677-0ikomi53tpjeslm10q89k78s2f9n89fb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5W3YvtLgl5TKladlq5ebH0qI5P1iQToQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137810020677-0ikomi53tpjeslm10q89k78s2f9n89fb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "137810020677-0lug6libn18ll2ddljcekdakdunptlbt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DaraTech.GPlessApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:137810020677:android:a0337325ca344b6ba6562c",
+        "android_client_info": {
+          "package_name": "com.example.furniture"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "137810020677-ic8v1e48hcp7sc8k1pj2bk7nvooorq5r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.furniture",
+            "certificate_hash": "cd91132927252f3ef3939552fcd726d0031d5a55"
+          }
+        },
+        {
+          "client_id": "137810020677-0ikomi53tpjeslm10q89k78s2f9n89fb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5W3YvtLgl5TKladlq5ebH0qI5P1iQToQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "137810020677-0ikomi53tpjeslm10q89k78s2f9n89fb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "137810020677-0lug6libn18ll2ddljcekdakdunptlbt.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.DaraTech.GPlessApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
