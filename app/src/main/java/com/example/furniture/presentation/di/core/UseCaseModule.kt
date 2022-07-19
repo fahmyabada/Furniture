@@ -1,7 +1,9 @@
 package com.example.furniture.presentation.di.core
 
 
+import com.example.furniture.domain.repository.HomeRepository
 import com.example.furniture.domain.repository.LoginRepository
+import com.example.furniture.domain.usecase.home.GetHomeUseCase
 import com.example.furniture.domain.usecase.login.LoginUseCase
 import dagger.Module
 import dagger.Provides
@@ -21,5 +23,9 @@ class UseCaseModule {
         return LoginUseCase(loginRepository)
     }
 
-
+    @Singleton
+    @Provides
+    fun provideGetHomeUseCase(homeRepository: HomeRepository): GetHomeUseCase {
+        return GetHomeUseCase(homeRepository)
+    }
 }

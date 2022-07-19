@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">furniture</string>
 
-    <string name="facebook_app_id">1234</string>
-    <string name="fb_login_protocol_scheme">fb1234</string>
-    <string name="facebook_client_token">56789</string>
+    <string name="facebook_app_id">466167031579089</string>
+    <string name="fb_login_protocol_scheme">fb466167031579089</string>
+    <string name="facebook_client_token">eef8e06b600383c317a52a3fe6c84797</string>
+    <!--     get from google json    -->
+    <string name="client_id">137810020677-0ikomi53tpjeslm10q89k78s2f9n89fb.apps.googleusercontent.com</string>
 
 
 </resources>
