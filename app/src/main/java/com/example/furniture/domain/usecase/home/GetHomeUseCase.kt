@@ -7,7 +7,7 @@ import com.example.furniture.domain.repository.HomeRepository
 
 class GetHomeUseCase(private val homeRepository: HomeRepository) {
 
-    suspend fun getHome(): Resource<Home>{
+    suspend fun execute(): Resource<Home>{
         return homeRepository.getHome()
     }
 }

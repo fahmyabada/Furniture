@@ -1,6 +1,7 @@
 package com.example.furniture.data.api
 
 
+import com.example.furniture.data.model.furniture_nearby.FurnitureNearby
 import com.example.furniture.data.model.home.Home
 import com.example.furniture.data.model.login.Login
 import retrofit2.Response
@@ -16,4 +17,8 @@ interface Api {
     @GET("home")
     suspend fun getHome(): Response<Home>
 
+    @POST("home/furniture-nearby")
+    suspend fun furnitureNearby(
+        @QueryMap paramsMap: Map<String, String>
+    ): Response<FurnitureNearby>
 }

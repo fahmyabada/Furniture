@@ -1,6 +1,7 @@
 package com.example.furniture.presentation.di.core
 
 import android.app.Application
+import com.example.furniture.domain.usecase.home.FurnitureNearbyUseCase
 import com.example.furniture.domain.usecase.home.GetHomeUseCase
 import com.example.furniture.domain.usecase.login.LoginUseCase
 import com.example.furniture.presentation.CheckNetworkAvailable
@@ -36,11 +37,13 @@ class FactoryModule {
     fun provideHomeViewModelFactory(
         application: Application,
         getHomeUseCase: GetHomeUseCase,
+        furnitureNearbyUseCase: FurnitureNearbyUseCase,
         checkNetworkAvailable: CheckNetworkAvailable
     ): HomeViewModelFactory {
         return HomeViewModelFactory(
             application,
             getHomeUseCase,
+            furnitureNearbyUseCase,
             checkNetworkAvailable
         )
     }
