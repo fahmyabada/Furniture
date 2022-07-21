@@ -1,0 +1,1034 @@
+{
+	"info": {
+		"_postman_id": "6a13d257-8fb4-48dc-bbec-e1b31e3af459",
+		"name": "Furniture_task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6428257"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "waleed",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "wa@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01096981025",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "lang",
+									"value": "en",
+									"description": "from api languages",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "waaadsadasda",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/MASRY/Downloads/Photos/Screenshot 2022-01-07 203634.png"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "governorate_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "region_id",
+									"value": "13",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "birthday",
+									"value": "1994-08-18",
+									"description": "Y-m-d ",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"description": "male or female option",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://backend.forhomi.com/api/register",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "somaya@gmail.com",
+									"description": "email or phone",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://backend.forhomi.com/api/login",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "check-social",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "provider_type",
+									"value": "google",
+									"description": "google or facebook is required",
+									"type": "text"
+								},
+								{
+									"key": "provider_id",
+									"value": "1425s25sddsd",
+									"description": "required",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/check/social",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"check",
+								"social"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-social",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "provider_type",
+									"value": "google",
+									"description": "google or facebook is required",
+									"type": "text"
+								},
+								{
+									"key": "provider_id",
+									"value": "1425s25sddsd",
+									"description": "required",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "wwww",
+									"description": "required is not found provider_id and provider_type use api check-social",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "ws@gmail.com",
+									"description": "required is not found provider_id and provider_type use api check-social",
+									"type": "text"
+								},
+								{
+									"key": "fcm_token",
+									"value": "1425s25sddsd asdd",
+									"description": "fcm_token from firbase option",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/login/social",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login",
+								"social"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_customer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer 6|i4LzcXtkVESNedazGnLBMHIKnQRmCzcxhYrPEVp4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://backend.forhomi.com/api/profile",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-password",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5|CqQRonF53hotf3cEsdJuw6fdZ4ADNvTnahdteR1R",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer 9|VPWhIxjoCuRZ6qNSIbMjHPIFu8uURT1aSsWQ1Fyf",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "old_password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "123456789",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://backend.forhomi.com/api/update-password",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"update-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "5|CqQRonF53hotf3cEsdJuw6fdZ4ADNvTnahdteR1R",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer 5|CqQRonF53hotf3cEsdJuw6fdZ4ADNvTnahdteR1R",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "waleed",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "wa@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01096981025",
+									"type": "text"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/MASRY/Downloads/Photos/Screenshot 2022-01-07 203634.png"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "governorate_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "region_id",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "waaadsadasda",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "male",
+									"description": "male,female",
+									"type": "text"
+								},
+								{
+									"key": "birthday",
+									"value": "2001-08-20",
+									"description": "Y-m-d",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://backend.forhomi.com/api/update-profile",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"update-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "firebase-token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_customer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "fcm_token",
+									"value": "cic4CM5s0U2olij077jr9q:APA91bELW3269hVLBDaUgS3w-xkQ0D8rhH8yf9i3I5DPhKHkKUUyNTDt52NNrUG-DcHWfm9ZbnIRogWLR6sGOuuvarlR3L5pVpXFj9zsh8zVFwd40unLPqKtZ5fnEBqGyt3gAkqsVfkb",
+									"type": "text"
+								},
+								{
+									"key": "device_name",
+									"value": "ios",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://backend.forhomi.com/api/firebase-token",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"firebase-token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_customer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://backend.forhomi.com/api/logout",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change-language",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_customer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "en",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://backend.forhomi.com/api/change-language",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"change-language"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verification-code",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"warning": "This is a duplicate header and will be overridden by the Authorization header generated by Postman.",
+								"key": "Authorization",
+								"value": "Bearer 9|VPWhIxjoCuRZ6qNSIbMjHPIFu8uURT1aSsWQ1Fyf",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "phone",
+									"value": "01096981024",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://backend.forhomi.com/api/verification-code",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"verification-code"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Furniture",
+			"item": [
+				{
+					"name": "furniture details",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 2|W5Z6zqow9NJXucQGNn2EaLIftFFegZWGUpAYAolu",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://backend.forhomi.com/api/furniture/1",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"furniture",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "product details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token_customer}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://backend.forhomi.com/api/product/1",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"product",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get product colors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://backend.forhomi.com/api/product-colors",
+							"protocol": "https",
+							"host": [
+								"backend",
+								"forhomi",
+								"com"
+							],
+							"path": [
+								"api",
+								"product-colors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "home",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token_customer}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "ar",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/categories",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "furniture-nearby",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "lat",
+							"value": "25.2121212",
+							"type": "text"
+						},
+						{
+							"key": "lng",
+							"value": "24.1252152",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/furniture-nearby",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"furniture-nearby"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "governorate-region-category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/governorate-region-category",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"governorate-region-category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product-by-category/category_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/product-by-category/1?price=ASC",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"product-by-category",
+						"1"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "ASC",
+							"description": "ASC,DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "offers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/offers?price=ASC",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"offers"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "ASC",
+							"description": "ASC,DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "saves",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/saves?price=DESC",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"saves"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "DESC",
+							"description": "ASC,DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "discounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/discounts?price=DESC",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"discounts"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "DESC",
+							"description": "ASC,DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "save details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/saves/1",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"saves",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "offer details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/offers/1",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"offers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "discount details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://backend.forhomi.com/api/home/discounts/1",
+					"protocol": "https",
+					"host": [
+						"backend",
+						"forhomi",
+						"com"
+					],
+					"path": [
+						"api",
+						"home",
+						"discounts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://backend.forhomi.com/api",
+			"type": "string"
+		},
+		{
+			"key": "token_customer",
+			"value": "45|g5yyZcnBcvuPOuQtaY25DzxIvELmx7MS30ny3Zzq",
+			"type": "string"
+		},
+		{
+			"key": "ser",
+			"value": "https://backend.forhomi.com/api",
+			"type": "string"
+		},
+		{
+			"key": "customer",
+			"value": "Bearer 50|i2LxgBVOPhZaFofDkJ1NbTciCoJ0IiF6c7FnRoOf",
+			"type": "string"
+		}
+	]
+}

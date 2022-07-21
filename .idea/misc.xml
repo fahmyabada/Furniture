@@ -14,8 +14,9 @@
         <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_solid_grey_10.xml" value="0.126" />
         <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_solid_grey_20.xml" value="0.128" />
         <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/radius_solid_grey_5.xml" value="0.126" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/selector_navigation.xml" value="0.1385" />
         <entry key="..\:/android/projects/Furniture/app/src/main/res/drawable/streakline.xml" value="0.126" />
-        <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/activity_main.xml" value="0.23243243243243245" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/fragment_home.xml" value="0.2213772708069286" />
         <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/fragment_home_category_recycler_view_item.xml" value="0.23603603603603604" />
         <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/fragment_home_discount_recycler_view_item.xml" value="0.23603603603603604" />
@@ -24,6 +25,7 @@
         <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/fragment_home_recycler_view_item.xml" value="0.23603603603603604" />
         <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/fragment_home_saves_recycler_view_item.xml" value="0.23603603603603604" />
         <entry key="..\:/android/projects/Furniture/app/src/main/res/layout/fragment_login.xml" value="0.23243243243243245" />
+        <entry key="..\:/android/projects/Furniture/app/src/main/res/menu/menu_navigation.xml" value="0.24947916666666667" />
       </map>
     </option>
   </component>

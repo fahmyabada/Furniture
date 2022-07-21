@@ -3,15 +3,18 @@ package com.example.furniture
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
 import com.example.furniture.data.api.SessionManager
 import com.example.furniture.databinding.ActivityMainBinding
 import com.facebook.AccessToken
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -42,7 +45,9 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container_main) as NavHostFragment
+        val navigationBottomHome: BottomNavigationView = findViewById(R.id.navigation_Bottom_home)
         navController = navHostFragment.navController
+        NavigationUI.setupWithNavController(navigationBottomHome, navController)
 
         if (sessionManager.getString("typeSignIn")!=null) {
             if (sessionManager.getString("typeSignIn") == "facebook") {
@@ -66,6 +71,28 @@ class MainActivity : AppCompatActivity() {
             navController.navigate(R.id.loginFragment)
         }
 
+
+        val listener =
+            NavController.OnDestinationChangedListener { controller, destination, arguments ->
+                // react on change
+                // you can check destination.id or destination.label and act based on that
+                when (destination.id) {
+                    R.id.loginFragment -> {
+                        binding.navigationBottomHome.visibility = View.GONE
+                    }
+                    R.id.registerFragment -> {
+                        binding.navigationBottomHome.visibility = View.GONE
+                    }
+                    R.id.homeFragment -> {
+                        navigationBottomHome.menu.getItem(2).isChecked = true
+                        binding.navigationBottomHome.visibility = View.VISIBLE
+                    }
+                    else -> binding.navigationBottomHome.visibility = View.VISIBLE
+                }
+
+            }
+
+        navController.addOnDestinationChangedListener(listener)
 
     }
 

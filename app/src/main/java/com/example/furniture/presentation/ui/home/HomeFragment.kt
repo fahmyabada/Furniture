@@ -10,12 +10,10 @@ import android.location.Location
 import android.location.LocationManager
 import android.net.Uri
 import android.os.Build
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +22,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -132,7 +131,7 @@ class HomeFragment : Fragment() {
                     }
                 }
 
-            }else{
+            } else {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)) {
                         Log.i("", "ACCESS_FINE_LOCATION 22**** ")
@@ -181,6 +180,9 @@ class HomeFragment : Fragment() {
             requestPermission()
         } else {
             Log.i("", "shouldShowRequestPermissionRationale 66**** ")
+
+            currentLocation()
+
             if (!isLocationEnable()) {
                 showMessageOk("انت تحتاج الي تفعيل الموقع.. ") { _, _ ->
                     val intent = Intent(
@@ -370,8 +372,16 @@ class HomeFragment : Fragment() {
 
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
-                    if (!recyclerView.canScrollVertically(1) && dy > 0) {
+                    Log.i(
+                        "",
+                        "canScrollHorizontally **** ${recyclerView.canScrollHorizontally(-1)}"
+                    )
+                    Log.i("", "canScrollHorizontally3 **** $dx")
+                    // scroll left
+                    if (!recyclerView.canScrollHorizontally(-1) && dx < 0) {
                         val map = HashMap<String, String>()
+                        map["lng"] = longitude
+                        map["lat"] = latitude
                         map["page"] = viewModel.numPageViewModel.value!!
                         viewModel.getFurnitureNearby(map)
                     }
@@ -386,13 +396,6 @@ class HomeFragment : Fragment() {
         displayItems()
     }
 
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-    }
     private fun displayItems() {
         viewModel.getHome()
         viewModel.homeItem.observe(viewLifecycleOwner) { response ->
@@ -464,10 +467,12 @@ class HomeFragment : Fragment() {
                     // use latitude and longitude as per your need
                     Log.i("longitude fused", "*********** $longitude")
                     Log.i("latitude fused", "*********** $latitude")
-                    val map = HashMap<String, String>()
-                    map["lng"] = longitude
-                    map["lat"] = latitude
-                    viewModel.getFurnitureNearby(map)
+                    if (data.isEmpty()) {
+                        val map = HashMap<String, String>()
+                        map["lng"] = longitude
+                        map["lat"] = latitude
+                        viewModel.getFurnitureNearby(map)
+                    }
                 }
             }
         }
@@ -502,6 +507,7 @@ class HomeFragment : Fragment() {
                                 viewModel.numPageViewModel.postValue((viewModel.numPageViewModel.value!!.toInt() + 1).toString())
                             }
 
+//                            adapterValueFurnitureNearby.setData(it.data)
 
                             if (it.data.isNotEmpty()) {
                                 data.addAll(it.data)

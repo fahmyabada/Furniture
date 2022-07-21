@@ -10,11 +10,11 @@
     <color name="black3">#8d8d8e</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#f2f2f2</color>
-    <color name="blue2">#707c8f</color>
     <color name="grey3">#bdbdbd</color>
     <color name="grey4">#DFDFDF</color>
     <color name="grey5">#F3F3F3</color>
     <color name="blue">#367fc0</color>
+    <color name="blue2">#707c8f</color>
     <color name="red">#dd4b39</color>
 
 </resources>
