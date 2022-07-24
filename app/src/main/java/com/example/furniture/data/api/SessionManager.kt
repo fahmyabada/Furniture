@@ -66,19 +66,6 @@ class SessionManager @Inject constructor(@ApplicationContext private val context
         }
     }
 
-    fun checkLogin2(navController: NavController, id: Int) {
-        if (!this.isLoggedIn()!!) {
-            navController.navigate(R.id.loginFragment)
-        } else {
-            val bundle = bundleOf("productId" to id)
-
-            navController.navigate(
-                R.id.homeFragment,
-                bundle
-            )
-        }
-    }
-
     /**
      * Quick check for login
      **/

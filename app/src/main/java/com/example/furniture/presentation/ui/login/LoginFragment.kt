@@ -1,5 +1,6 @@
 package com.example.furniture.presentation.ui.login
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.addTextChangedListener
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -47,7 +51,7 @@ class LoginFragment : Fragment() {
     private lateinit var callbackManager: CallbackManager
     private lateinit var mAuth: FirebaseAuth
     private lateinit var googleSignInClient: GoogleSignInClient
-    private val RC_SIGN_IN = 123
+    private lateinit var someActivityPermissionLauncher: ActivityResultLauncher<Intent>
 
 
     override fun onCreateView(
@@ -233,23 +237,16 @@ class LoginFragment : Fragment() {
         // for signOut google
         // use mAuth.signOut()
 
-    }
-
-    // you must make that to signIn facebook and google
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        // Result returned from launching the Intent from GoogleSignInClient.getSignInIntent(...);
-        if (requestCode == RC_SIGN_IN) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleGoogleSignInResult(task)
+        someActivityPermissionLauncher = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                // The Task returned from this call is always completed, no need to attach
+                // a listener.
+                val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+                handleGoogleSignInResult(task)
+            }
         }
-
-        callbackManager.onActivityResult(requestCode, resultCode, data)
-
-        Log.d("letsSee", "malsehnnnnnn: " + data)
     }
 
     private fun login() {
@@ -299,15 +296,21 @@ class LoginFragment : Fragment() {
 
     //facebook
     private fun connectToFacebook() {
-        // if not use this not listen LoginManager
+        // if not use callbackManager will be notify deprecated
+        // and not listen result
         LoginManager.getInstance().logInWithReadPermissions(
             this,
+            callbackManager,
             listOf("email", "public_profile")
         )
 
     }
 
     fun handleFacebookAccessToken(token: AccessToken) {
+        // you should go setting of authentication
+        // and check create multiple accounts for each identify provider
+        // for can you create with same email and different type ex:(facebook - google ...etc)
+
         val credential = FacebookAuthProvider.getCredential(token.token)
         mAuth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful) {
@@ -316,6 +319,7 @@ class LoginFragment : Fragment() {
                 Navigation.findNavController(requireView())
                     .navigate(R.id.action_loginFragment_to_homeFragment)
             } else {
+                Log.i("", "Authentication Facebook failed = ${it.exception}")
                 Toast.makeText(
                     requireContext(),
                     "Authentication Facebook failed = ${it.exception}",
@@ -328,7 +332,7 @@ class LoginFragment : Fragment() {
     // google
     private fun openSignIn() {
         val signInIntent: Intent = googleSignInClient.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
+        someActivityPermissionLauncher.launch(signInIntent)
     }
 
     private fun createRequestGmail() {
@@ -371,9 +375,9 @@ class LoginFragment : Fragment() {
     private fun firebaseAuthWithGoogleAccount(account: GoogleSignInAccount) {
         Log.i("", "firebaseAuthWithGoogleAccount********")
 
-        val credential = GoogleAuthProvider.getCredential(account.idToken,null)
+        val credential = GoogleAuthProvider.getCredential(account.idToken, null)
 
-        mAuth.signInWithCredential(credential).addOnSuccessListener { authResult->
+        mAuth.signInWithCredential(credential).addOnSuccessListener { authResult ->
 
             Log.i("", "firebaseAuthWithGoogleAccount LoggedIn********")
 
@@ -386,10 +390,10 @@ class LoginFragment : Fragment() {
             Log.i("", "firebaseAuthWithGoogleAccount uid******** $uid")
             Log.i("", "firebaseAuthWithGoogleAccount email******** $email")
 
-            if(authResult.additionalUserInfo!!.isNewUser){
+            if (authResult.additionalUserInfo!!.isNewUser) {
                 Log.i("", "firebaseAuthWithGoogleAccount account create******** $email")
                 Toast.makeText(requireContext(), "account create", Toast.LENGTH_LONG).show()
-            }else{
+            } else {
                 Log.i("", "firebaseAuthWithGoogleAccount existing user******** $email")
                 Toast.makeText(requireContext(), "existing user", Toast.LENGTH_LONG).show()
             }
@@ -399,7 +403,9 @@ class LoginFragment : Fragment() {
                 .navigate(R.id.action_loginFragment_to_homeFragment)
         }.addOnFailureListener {
             Log.i("", "firebaseAuthWithGoogleAccount LoggedIn failed******** ${it.message}")
-            Toast.makeText(requireContext(), "LoggedIn failed \n  ${it.message}", Toast.LENGTH_LONG).show()
+            Toast.makeText(requireContext(), "LoggedIn failed \n  ${it.message}", Toast.LENGTH_LONG)
+                .show()
         }
     }
+
 }
