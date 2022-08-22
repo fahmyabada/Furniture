@@ -119,7 +119,7 @@ class LoginFragment : Fragment() {
                     response.message?.let {
                         Toast.makeText(
                             requireContext(),
-                            "An error occurred $it",
+                            it,
                             Toast.LENGTH_SHORT
                         ).show()
 

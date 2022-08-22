@@ -13,6 +13,7 @@ import com.example.furniture.domain.usecase.home.GetHomeUseCase
 import com.example.furniture.presentation.CheckNetworkAvailable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class HomeViewModel(
     app: Application,
@@ -39,6 +40,8 @@ class HomeViewModel(
             } else {
                 homeItem.postValue(Resource.Error("internet not available"))
             }
+        } catch (e: IOException) {
+            homeItem.postValue(Resource.Error("Error checking internet connection"))
         } catch (e: Exception) {
             homeItem.postValue(Resource.Error(e.message.toString()))
         }
@@ -53,6 +56,8 @@ class HomeViewModel(
             } else {
                 furnitureNearbyItem.postValue(Resource.Error("internet not available"))
             }
+        } catch (e: IOException) {
+            furnitureNearbyItem.postValue(Resource.Error("Error checking internet connection"))
         } catch (e: Exception) {
             furnitureNearbyItem.postValue(Resource.Error(e.message.toString()))
         }

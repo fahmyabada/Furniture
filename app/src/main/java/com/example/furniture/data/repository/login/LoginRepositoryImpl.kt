@@ -3,6 +3,7 @@ package com.example.furniture.data.repository.login
 import com.example.furniture.data.model.login.Login
 import com.example.furniture.data.util.Resource
 import com.example.furniture.domain.repository.LoginRepository
+import org.json.JSONObject
 import retrofit2.Response
 
 class LoginRepositoryImpl(private val LoginRemoteDataSource: LoginRemoteDataSource) :
@@ -19,6 +20,10 @@ class LoginRepositoryImpl(private val LoginRemoteDataSource: LoginRemoteDataSour
                 return Resource.Success(result)
             }
         }
-        return Resource.Error(response.message())
+        // if status code changed  ex : 404, 505 .....
+        // and you want receive data that get from backend
+        val jObjError =
+            JSONObject(response.errorBody()!!.string())
+        return Resource.Error(jObjError.getString("message"))
     }
 }

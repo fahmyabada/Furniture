@@ -10,6 +10,7 @@ import com.example.furniture.domain.usecase.login.LoginUseCase
 import com.example.furniture.presentation.CheckNetworkAvailable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.IOException
 
 class LoginViewModel(
     app: Application,
@@ -28,7 +29,9 @@ class LoginViewModel(
             } else {
                 loginItem.postValue(Resource.Error("internet not available"))
             }
-        }catch (e:Exception){
+        } catch (e: IOException) {
+            loginItem.postValue(Resource.Error("Error checking internet connection"))
+        } catch (e: Exception) {
             loginItem.postValue(Resource.Error(e.message.toString()))
         }
     }
